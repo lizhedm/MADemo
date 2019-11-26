@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Movie Preview</title>
+    <style type="text/css">
+        body, html {
+            margin:0;
+            padding: 0;
+        }
+
+        body {
+            font: 12pt Arial, sans-serif;
+            position: relative;
+            background-color: #eee;
+        }
+
+        form{
+            margin:0 auto;
+            font-weight:bold;
+        }
+
+        .wrap{
+            padding:5px 0;
+            margin:10px 0;
+        }
+
+        .tip{
+            width:40%;
+            padding-right:20px;
+            float:left;
+            text-align: right;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .image{
+            width: auto;
+            height: auto;
+            border: 1px solid gray;
+            float: left;
+            margin: 5px;
+            text-align: center;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+        }
+        .text{
+            font: 12px caption;
+            margin-bottom: 5px;
+        }
+        .container{
+            margin: 50px auto;
+            width: 700px;
+        }
+        a:hover > img{
+            transform: scale(1.5,1.5);
+            -webkit-transition: .3s transform;
+            -moz-transition: .3s transform;
+            transition: .3s transform;
+        }
+
+    </style>
+</head>
+<body>
+{#    {% movie_dataframe = get_movie_dataframe() %}#}
+{#    {% movie_name = movie_dataframe['MovieName'][1] %}#}
+    <div class="container">
+        {% with movieIDs = generateIDs(6) %}
+            {% set movieID1 = movieIDs[0] %}
+            {% set movieID2 = movieIDs[1] %}
+            {% set movieID3 = movieIDs[2] %}
+            {% set movieID4 = movieIDs[3] %}
+            {% set movieID5 = movieIDs[4] %}
+            {% set movieID6 = movieIDs[5] %}
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID1) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID1) }}</div>
+            </div>
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID2) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID2) }}</div>
+            </div>
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID3) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID3) }}</div>
+            </div>
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID4) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID4) }}</div>
+            </div>
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID5) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID5) }}</div>
+            </div>
+            <div class="image">
+                <a href="#"><img src = {{ get_movie_poster_withID(movieID6) }}></a>
+                <div class="text" id = 'movie_name'>{{ get_movie_name_withID(movieID6) }}</div>
+            </div>
+        {% endwith %}
+    </div>
+
+
+    <form>
+        <div>
+            <a href="{{ url_for('user_background') }}">Go back</a>
+            <a id="refresh">Refresh</a>
+            <a href="{{ url_for('movie_degree') }}" >Next</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $("#refresh").on('click', function() {
+            location.reload();
+
+        });
+    </script>
+
+</body>
+</html>

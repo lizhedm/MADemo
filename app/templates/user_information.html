@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - User Information</title>
+{#    <link rel="stylesheet" type="text/css" href="user_information.css">#}
+    <style type="text/css">
+        body, html {
+            margin:0;
+            padding: 0;
+        }
+
+        body {
+            font: 12pt Arial, sans-serif;
+            position: relative;
+            background-color: #eee;
+        }
+
+        form{
+            margin:0 auto;
+            font-weight:bold;
+        }
+
+        .wrap{
+            padding:5px 0;
+            margin:10px 0;
+        }
+
+        .tip{
+            width:40%;
+            padding-right:20px;
+            float:left;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+        <form>
+          <div class="wrap">
+          <label class="tip">Your name: </label>
+          <input value="Zhe Li"/>
+          </div>
+
+          <div class="wrap">
+          <label class="tip">Gender:</label>
+          <input value="Male"/>
+          </div>
+         </form>
+
+        <form>
+          <div class="wrap">
+          <label class="tip">Age</label>
+          <input type="radio" name="age" />0~18
+          <input type="radio" name="age" />18~24
+          <input type="radio" name="age" />24~40
+          <input type="radio" name="age">beyond 40
+         </div>
+         </form>
+
+        <form>
+          <div class="wrap">
+          <label class="tip">Professional</label>
+          <select>
+              <option value="1">Student</option>
+              <option value="2">Professor</option>
+              <option value="3">IT Manager</option>
+              <option value="4">Others</option>
+          </select>
+         </div>
+         </form>
+
+        <form>
+            <div>
+               <a href="{{ url_for('explanation') }}">Go back</a>
+               <a href="{{ url_for('user_background') }}" >Next</a>
+           </div>
+        </form>
+
+
+</body>
+</html>
