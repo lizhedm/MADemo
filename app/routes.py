@@ -85,7 +85,7 @@ def generateIDs(n):
 
 @app.template_global()
 def get_movie_name_withID(i):
-    movies = pd.read_csv('/Users/lizhe/Dropbox/HCI_Master/SS19/Thesis/Demo/app/ml-1m/movies.dat', sep='::', engine='python')
+    movies = pd.read_csv('/Users/lizhe/Dropbox/HCI_Master/SS19/Thesis/MADemo/app/ml-1m/movies.dat', sep='::', engine='python')
     movie_name = movies['MovieName'][i]
     return movie_name
 
@@ -94,7 +94,7 @@ def get_movie_poster_withID(i):
 
     # apikey = 'e760129c'
     apikey = 'e44e5305'
-    movies = pd.read_csv('/Users/lizhe/Dropbox/HCI_Master/SS19/Thesis/Demo/app/ml-1m/movies.dat', sep='::', engine='python')
+    movies = pd.read_csv('/Users/lizhe/Dropbox/HCI_Master/SS19/Thesis/MADemo/app/ml-1m/movies.dat', sep='::', engine='python')
     movie_name = get_movie_name_withID(i)
     movie_title = movie_name[0:-7]
     movie_year = movie_name[-5:-1]
